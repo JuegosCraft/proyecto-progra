@@ -2,11 +2,20 @@ from tkinter import *
 
 e=Tk()
 e.title("Registro")
-e.geometry("400x500")
+e.geometry("600x300")
 e.config(bg="#B4C7E7")
 e.resizable(0,0)
+#------------------------------------------------
 
+etiqueta = Label (e,font=('century',18,'bold'),text='Base de Datos',bg='#B4C7E7',width=20,height=1,bd=5,fg="#000000")
+etiqueta.place(x=120,y=30)
 
+#--------------------------------------------
+
+boton_registro = Button(e,font=("arial",12,"bold"),text="Resgistro",width=20,height=2,bg="#0077AC",)
+boton_registro.place(x=70,y=130)
+
+boton_login = Button(e,font=("arial",12,"bold"),text="Login",width=20,height=2,bg="#0077AC",).place(x=300,y=130)
 
 #-------------ventana_usuario---------------#
 def registro_u():
@@ -56,7 +65,7 @@ def registro_u():
     boton_u4=Button(u,font=("arial",12,"bold"),text="eliminar usuario",width=20,height=2,bg="#0077AC").place(x=550,y=600)
 
 
-def registro_j():
+def login_j():
         #----------------------------------------------------#
      j = Tk()
      j.title('Registro')
