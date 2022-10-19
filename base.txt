@@ -1,0 +1,10 @@
+conexion=mysql.connector.connect(host="localhost",port="3306",user="root",password="")
+bd=conexion.cursor()
+bd.execute("CREATE DATABASE IF NOT EXISTS Proyecto")
+bd.close()
+
+conexion=mysql.connector.connect(host="localhost",port="3306",user="root",password="",database="Proyecto")
+bd=conexion.cursor()
+bd.execute("CREATE TABLE IF NOT EXISTS Registro(identificacion VARCHAR(25),nombre-y-apellidos VARCHAR(55),puesto-de-trabajo VARCHAR(55),usuario VARCHAR(55),contraseña VARCHAR(55))")
+bd.execute("CREATE TABLE IF NOT EXISTS Login(usuario VARCHAR(25),contraseña VARCHAR(55),")
+bd.close()
