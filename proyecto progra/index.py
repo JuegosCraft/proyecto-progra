@@ -42,14 +42,11 @@ def registro():
           limpiar()
     def eliminar_usuario():
              cur=conexion.cursor()
-             cod=txt_identificacion.get()
+             cod=txt_usuario.get()
              cur.execute("delete from inventario where codigo ='{}'".format(cod))
              conexion.commit()
              cur.close()
              messagebox.showinfo(message="se elimino el libro exitosamente",title="informacion")
-             txt_identificacion.delete(0,END)
-             txt_nombre_y_apellido.delete(0,END)
-             txt_puesto_de_trabajo.delete(0,END)
              txt_usuario.delete(0,END)
              txt_contraseña.delete(0,END)
     u= Tk()
@@ -76,6 +73,23 @@ def registro():
     boton_u4=Button(u,font=("arial",12,"bold"),text="eliminar usuario",width=20,height=2,bg="#0077AC",command=eliminar_usuario).place(x=550,y=600)
 #--------------------------------ventana login----------------------------------
 def login():
+#------------------------------------funciones de login-------------------------------------------------------
+    def agregar_libro():
+        cur=conexion.cursor()
+        usu=txt_usuario.get()
+        con=txt_contraseña.get()
+        cur.execute("insert into inventario(usuario,contraseña)values('{}','{}')".format(usuario,contraseña))
+        conexion.commit()#actualizar el envio de datos
+        cur.close()
+        messagebox.showinfo(message="login exitosos",title="informacion")
+        txt_usuario.delete(0,END)
+        txt_contraseña.delete(0,END)
+
+    def cancelar_login():
+        txt_usuario.delete(0,END)
+        txt_contraseña.delete(0,END)
+        messagebox.showinfo(message="se canselo el login",title="informacion")
+#-------------------------------------------------------------------------     
     j = Tk()
     j.title('Registro')
     j.geometry('800x300')
